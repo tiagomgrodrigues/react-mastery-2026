@@ -219,6 +219,7 @@ spanishTranslations
 
 console.log(getTotalReviewsCount(book)); */
 
+/*
 function getTotalReviewsCount(book){
   const goodreads = book.reviews.goodreads.reviewsCount;
   const librarything = book.reviews.librarything?.reviewsCount ?? 0;
@@ -249,3 +250,44 @@ adventureBooks
 
 const pagesAllBooks = books.reduce((sum, book)=> sum + book.pages, 0)
 pagesAllBooks;
+
+const arr = [3, 7, 1, 9, 6];
+const sorted = arr.toSorted((a,b) => a - b);
+sorted;
+arr;
+
+const sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
+sortedByPages;
+
+// 1) Add book object array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling"
+};
+const booksAfterAdd = [...books, newBook]
+booksAfterAdd;
+
+// 2) Delete book object from array
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id != 3);
+booksAfterDelete;
+
+// 3) Update book object in the array
+const booksAfterUpdate = booksAfterDelete.map((book) => book.id === 1 ? {...book, pages: 1211} : book);
+booksAfterUpdate
+*/
+
+// fetch('https://jsonplaceholder.typicode.com/todos')
+// .then(res => res.json()
+// .then(data => console.log(data)))
+
+async function getTodos(){
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+  const data = await res.json();
+  console.log(data);
+
+  return data;
+}
+
+const todos = await getTodos();
+console.log(todos);
